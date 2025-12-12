@@ -19,4 +19,12 @@ services:
       ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
       ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
 
- 
+  golang:
+    image: golang:1.25
+    working_dir: /app/src/
+    volumes:
+      - ./src:/app/src
+    ports:
+      - "8082:8080"
+    command: ["go", "run", "."]
+
